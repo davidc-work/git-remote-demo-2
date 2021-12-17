@@ -1,0 +1,144 @@
+html, body {
+    font-family: monospace;
+    user-select: none;
+    background-color: #ffffff;
+    opacity: 0.9;
+    background-image:  linear-gradient(#f6f6f6 3.8000000000000003px, transparent 3.8000000000000003px), linear-gradient(to right, #f6f6f6 3.8000000000000003px, #ffffff 3.8000000000000003px);
+    background-size: 76px 76px;
+}
+
+:root {
+    --button-width: 110px;
+    --button-height: 80px;
+}
+
+.center-of-page {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calculator-container {
+    animation: 0.5s transition-main;
+    max-width: 800px;
+    max-height: 1200px;
+    width: 560px;
+    height: 650px;
+    background-color: white;
+    box-shadow: 0 0 20px black;
+    border-radius: 20px;
+}
+
+.calculator-main {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.calculator-display {
+    height: 100px;
+    width: calc(100% - 60px);
+    background-color: #787878;
+    margin-bottom: 17px;
+    position: relative;
+    left: calc(50% - 21px);
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.calculator-display > p {
+    opacity: 1;
+    position: absolute;
+    right: 10px;
+    font-size: 56px;
+    color: white;
+    margin: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.05s;
+    user-select: text;
+}
+
+.calculator-display.flashing > p {
+    opacity: 0;
+}
+
+.calculator-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 40px);
+    height: calc(100% - 150px);
+}
+
+.calculator-button {
+    cursor: pointer;
+    flex-basis: 0;
+    flex: 1 1 0px;
+    width: var(--button-width);
+    height: var(--button-height);
+    min-width: var(--button-width);
+    min-height: var(--button-height);
+    max-width: var(--button-width);
+    max-height: var(--button-height);
+    margin: 10px;
+    background-color: #d1d1d1;
+    border-radius: 5px;
+    box-shadow: inset 0 0 15px #bfbfbf;
+}
+
+.calculator-button:nth-child(n+1):nth-child(-n+4),
+.calculator-button:nth-child(8),
+.calculator-button:nth-child(12),
+.calculator-button:nth-child(16),
+.calculator-button:nth-child(20) {
+    background-color: #ebebeb
+}
+
+.calculator-button:nth-child(19) {
+    background-color: rgb(255, 199, 94);
+    box-shadow: inset 0 0 15px #ffce48;
+}
+
+.calculator-button > p {
+    text-align: center;
+    line-height: var(--button-height);
+    margin: 0;
+    font-size: 36px;
+    font-family: monospace;
+    color: #666666;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.calculator-button:hover > p {
+    color: orange;
+}
+
+.calculator-button:nth-child(19):hover > p {
+    color: white;
+}
+
+.calculator-e {
+    display: none;
+    position: absolute;
+    top: -31px;
+    left: 36px;
+    color: white;
+    font-size: 44px;
+}
+
+.calculator-e.visible {
+    display: block;
+}
+
+@keyframes transition-main {
+    from {
+        opacity: 0;
+        transform: translate(calc(-50% + 300px), calc(-50% - 300px)) scale(0.5) rotate(35deg);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0);
+    }
+}
